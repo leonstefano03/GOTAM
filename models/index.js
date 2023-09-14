@@ -1,6 +1,7 @@
 const User = require('./user');
 const Area = require('./area')
+const Employee = require('./employee')
 
-User.belongsTo(Area)
+Employee.belongsTo(Area)
 
-module.exports = {User, Area}
+module.exports = {User, Area, Employee}
