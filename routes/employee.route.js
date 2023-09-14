@@ -1,5 +1,6 @@
 const express = require("express");
-  const router = express.Router();
+const {createEmployee, updateIdEmployee, deleteEmployee, allEmployee, getEmployeeId} = require('../controllers/employee.controller')
+const router = express.Router();
 
 
   router.post('/create',createEmployee)
