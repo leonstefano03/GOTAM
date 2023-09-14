@@ -1,5 +1,5 @@
-import sequelize from "sequelize";
-import db from "../config/db";
+const sequelize = require("sequelize");
+const db = require("../config/db");
 
 class Area extends sequelize.Model {}
 
@@ -10,4 +10,4 @@ Area.init({
   },
 },{sequelize: db, modelName: 'Area'});
 
-export default Area
+module.exports = Area
