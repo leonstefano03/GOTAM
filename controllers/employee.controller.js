@@ -39,7 +39,7 @@ const updateIdEmployee = asyncHandler(async (req, res) => {
 
 const allEmployee = asyncHandler(async (req, res) => {
   try {
-    const allEmployees = await employee_service.findAllEmployee();
+    const allEmployees = await employee_service.findAllEmployees();
 
     if (allEmployees.length === 0) {
       res
