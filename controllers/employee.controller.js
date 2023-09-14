@@ -3,12 +3,14 @@ const Employee_Services = require("../services/employee.services");
 
 const employee_service = new Employee_Services();
 
-const create = asyncHandler(async (req, res) => {
+const createEmployee = asyncHandler(async (req, res) => {
   try {
+   
     const employee = req.body;
     const foundEmployee = await employee_service.findEmployeeByDni(
       employee.dni
-    );
+    ); 
+   
     if (foundEmployee) {
       res.status(400).send("Invalid data");
     } else {
@@ -30,7 +32,7 @@ const updateIdEmployee = asyncHandler(async (req, res) => {
     if (!foundEmployeeById) {
       return res.status(404).send({ message: "Employee not found" });
     }
-    await employee_service.userUpdate(id, employeeUpdate);
+    await employee_service.employeeUpdate(Number(id), employeeUpdate);
     res.status(200).send({ message: "Employee succesfully updated" });
   } catch (error) {
     res.status(500).send("signup error: " + error);
@@ -84,7 +86,7 @@ const deleteEmployee = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  create,
+  createEmployee,
   updateIdEmployee,
   allEmployee,
   getEmployeeId,

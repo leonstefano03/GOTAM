@@ -3,7 +3,7 @@ const db = require("../config/db");
 
 class Employee extends sequelize.Model {}
 
-User.init(
+Employee.init(
   {
     full_name: {
       type: sequelize.STRING,
@@ -12,6 +12,7 @@ User.init(
     dni: {
       type: sequelize.INTEGER,
       allowNull: false,
+      unique: true,
     },
     birthday: {
       type: sequelize.DATE,

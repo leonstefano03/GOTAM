@@ -2,7 +2,7 @@ const { Employee } = require("../models");
 
 class Employee_services {
   async createEmployee(employeeData) {
-    const createdEmployee = await User.create(employeeData);
+    const createdEmployee = await Employee.create(employeeData);
     return createdEmployee;
   }
 
@@ -26,6 +26,18 @@ class Employee_services {
   async deleteEmployeeById(id) {
     const employeeDelete = await Employee.destroy({ where: { id } });
     return employeeDelete;
+  }
+  async employeeUpdate(id, updatedEmployeeData) {
+    const [count, updatedEmployee] = await Employee.update(
+      updatedEmployeeData,
+      {
+        where: { id },
+      }
+    );
+    if (count === 0) {
+      throw new Error(`No se encontró ningún empleado con el ID ${id}`);
+    }
+    return updatedEmployee;
   }
 }
 
