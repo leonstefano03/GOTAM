@@ -19,7 +19,5 @@ components:
         full_name:
           type: string
           required: true
-          default: userFullName
-
         token:
           type: object
