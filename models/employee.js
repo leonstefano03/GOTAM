@@ -10,7 +10,7 @@ Employee.init(
       allowNull: false,
     },
     dni: {
-      type: sequelize.INTEGER,
+      type: sequelize.STRING,
       allowNull: false,
       unique: true,
     },
@@ -25,7 +25,7 @@ Employee.init(
     },
     additional_information: {
       type: sequelize.TEXT,
-      defaultValue: "",
+      defaultValue: "No hay informacion adicional",
     }
   },
   { sequelize: db, modelName: "Employee" }

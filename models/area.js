@@ -4,7 +4,7 @@ const db = require("../config/db");
 class Area extends sequelize.Model {}
 
 Area.init({
-  name_of_area: {
+  area: {
     type: sequelize.STRING, 
     allowNull: false ,
     unique: true
