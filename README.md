@@ -34,6 +34,11 @@ crea la base de datos en psql con el nombre gotam
 4. inicia el proyecto:
 npm start
 
+## Para la documentacion de los endpoints utilice swagger:
+
+accede a swagger desde http://localhost:3001/api-docs
+
+
 ## Estructura del Proyecto
 
 El proyecto sigue una estructura de directorios que facilita la escalabilidad y la organización del código.
