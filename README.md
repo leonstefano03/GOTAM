@@ -1,17 +1,43 @@
 # GOTAM - Documentación del Proyecto
 
-Evaluation project of a CRUD mini app with node.js for gotam
+Proyecto de evaluación de una mini app CRUD con node.js para gotam
 
 ## Descripción del Proyecto
 
-Este proyecto es una mini app de un CRUD de alta de personal, utilizando Node.js. El proyecto utiliza una arquitectura escalable y aprovecha el patrón de diseño Singleton para los servicios. Está configurado para ejecutarse en contenedores Docker y utiliza MongoDB como base de datos para almacenar los datos. Las tecnologías principales utilizadas en este proyecto son Node.js, Express, TypeScript, JWT (JSON Web Tokens) y bcrypt para el cifrado de contraseñas.
+Este proyecto es una mini app de un CRUD de alta de personal, utilizando Node.js. El proyecto utiliza una arquitectura escalable y aprovecha el patrón de diseño Singleton para los servicios. utilice PostgreSQL como base de datos para almacenar los datos ya que la he utilizado en varios proyectos y al ser una mini app me parecio mas funcional esa DB. Las tecnologías principales utilizadas en este proyecto son Node.js, Express, JWT (JSON Web Tokens), bcrypt para el cifrado de contraseñas, Swagger, postgreSQL.
 
+## Diagrama de Entidad Relación
+
+![DER](https://res.cloudinary.com/dqf9xgsfp/image/upload/v1694806591/samples/ecommerce/leondb_rz4v1l.png)
+
+## Tiempo estimado del proyecto
+
+3 dias
+
+
+## instalacion
+
+### instrucciones
+
+Para instalar y configurar el backend de gotam en su entorno de desarrollo, siga estos pasos:
+
+1. clona el repositorio
+
+2. instala las dependencias:
+
+cd gotam-back
+npm install
+
+3. base de datos :
+crea la base de datos en psql con el nombre gotam
+
+4. inicia el proyecto:
+npm start
 
 ## Estructura del Proyecto
 
-El proyecto sigue una estructura de directorios que facilita la escalabilidad y la organización del código. A continuación, se describe la estructura principal del proyecto:
+El proyecto sigue una estructura de directorios que facilita la escalabilidad y la organización del código.
 
-gotam/
 
 
 ## Arquitectura y Patrón de Diseño
