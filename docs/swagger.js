@@ -18,6 +18,10 @@ const options = {
   apis: [
     path.resolve(__dirname, "./userDocs/userRoutes.yml"),
     path.resolve(__dirname, "./userDocs/userSchema.yml"),
+    path.resolve(__dirname, "./employeeDocs/employeeRoutes.yml"),
+    path.resolve(__dirname, "./employeeDocs/employeeSchema.yml"),
+    path.resolve(__dirname, "./areaDocs/areaRoutes.yml"),
+    path.resolve(__dirname, "./areaDocs/areaSchema.yml"),
   ],
 };
 

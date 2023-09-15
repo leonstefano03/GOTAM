@@ -1,0 +1,9 @@
+components:
+  schemas:
+    Area:
+      type: object
+      properties:
+        area:
+          type: string
+          unique: true
+          description: name of the area.
