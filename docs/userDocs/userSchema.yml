@@ -1,0 +1,25 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+          required: true
+          description: user
+          example: user@test.com
+        password:
+          type: string
+          required: true
+          description: password
+          example: userPassword
+        salt:
+          type: string
+
+        full_name:
+          type: string
+          required: true
+          default: userFullName
+
+        token:
+          type: object
