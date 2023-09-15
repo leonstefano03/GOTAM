@@ -1,0 +1,56 @@
+#CREATE AREA
+
+/api/area/create/:
+  post:
+    summary: Create area
+    description: Create a new area by providing the required data in the request body.
+    tags:
+      - Area
+    requestBody:
+      description: JSON object containing package details.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Area"
+          example:
+            area: programacion
+    responses:
+      "201":
+        description: Area created successfully.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Area"
+
+      "401":
+        description: Unauthorized (invalid or missing token).
+      "500":
+        description: Internal Server Error.
+
+#DELETE EMPLOYEE
+
+/api/area/delete/{AreaId}:
+  delete:
+    summary: Delete a Area
+    description: Delete a Area by its unique ID.
+    tags:
+      - Area
+    parameters:
+      - in: path
+        name: AreaId
+        required: true
+        description: The ID of the Area to delete.
+        schema:
+          type: string
+        example: 2
+    responses:
+      "200":
+        description: Area delete successfully. No content is returned.
+        content:
+          text/plain:
+            example: Area deleted successfully
+      "401":
+        description: Unauthorized. The request lacks a valid or missing token.
+      "500":
+        description: Internal Server Error.

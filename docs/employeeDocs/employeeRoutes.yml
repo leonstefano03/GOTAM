@@ -1,0 +1,153 @@
+#CREATE EMPLOYEE
+
+/api/employee/create/:
+  post:
+    summary: Create a employee
+    description: Create a new employee by providing the required data in the request body.
+    tags:
+      - Employee
+    requestBody:
+      description: JSON object containing package details.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Employee"
+          example:
+            full_name: empleado 1
+            birthday: 10-10-1990
+            dni: 4463627l
+            developer: true
+            additional_information: Información adicional
+            AreaId: 2
+    responses:
+      "201":
+        description: Employee created successfully.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+
+      "401":
+        description: Unauthorized (invalid or missing token).
+      "500":
+        description: Internal Server Error.
+
+#DELETE EMPLOYEE
+
+/api/employee/delete/{employeeId}:
+  delete:
+    summary: Delete a Employee
+    description: Delete a Employee by its unique ID.
+    tags:
+      - Employee
+    parameters:
+      - in: path
+        name: employeeId
+        required: true
+        description: The ID of the employee to delete.
+        schema:
+          type: string
+        example: 2
+    responses:
+      "200":
+        description: Employeee delete successfully. No content is returned.
+        content:
+          text/plain:
+            example: Employee deleted successfully
+      "401":
+        description: Unauthorized. The request lacks a valid or missing token.
+      "500":
+        description: Internal Server Error.
+
+#EDIT EMPLOYEE
+
+/api/employee/update/{employeeId}:
+  put:
+    summary: Edit a Employee
+    description: Edit a Employee by its unique ID.
+    tags:
+      - Employee
+    parameters:
+      - in: path
+        name: employeeId
+        required: true
+        description: The ID of theEmployee to edit.
+        schema:
+          type: string
+        example: 2
+    requestBody:
+      description: JSON object containing employee details to be updated.You can specify only the data you want to edit.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Employee"
+          example:
+            full_name: empleado 1
+            birthday: 10-10-1990
+            dni: 44636dfgs
+            developer: true
+            additional_information: Información adicional
+            AreaId: 1
+    responses:
+      "200":
+        description: Employee edited successfully. Returns the newly editedEmployee.
+        content:
+          application/json:
+            example: Employee edited successfully
+      "401":
+        description: Unauthorized. The request lacks a valid or missing token.
+      "500":
+        description: Internal Server Error.
+
+#GET ALL EMPLOYEE
+
+/api/employee/all/:
+  get:
+    summary: Get all Employee
+    description: Get all Employee.
+    tags:
+      - Employee
+    responses:
+      "200":
+        description: Get Employee successfully. Returns all Employee.
+        content:
+          application/json:
+            schema:
+              type: array
+              $ref: "#/components/schemas/Employee"
+
+      "401":
+        description: Unauthorized (invalid or missing token).
+      "500":
+        description: Internal Server Error.
+
+#GET EMPLOYEE BY ID
+
+/api/employee/{employeeId}/:
+  get:
+    summary: Get Employee by id
+    description: Get Employee by its unique ID.
+    tags:
+      - Employee
+    parameters:
+      - in: path
+        name: employeeId
+        required: true
+        description: The ID of the Employee to get.
+        schema:
+          type: string
+        example: 2
+    responses:
+      "200":
+        description: Get Employee successfully. Returns employee by id.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+
+      "401":
+        description: Unauthorized (invalid or missing token).
+      "500":
+        description: Internal Server Error.
