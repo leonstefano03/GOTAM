@@ -17,7 +17,7 @@ server.use(cors(corsOptions));
 server.use(express.json());
 server.use("/api", routes);
 
-db.sync({ force: false })
+db.sync({ force:false })
   .then(() => {
     server.listen(3001, () => {
       console.log("Server is running on port 3001");
@@ -26,4 +26,3 @@ db.sync({ force: false })
   .catch((error) => {
     console.error("Error connecting to dataBase: ", error);
   });
-

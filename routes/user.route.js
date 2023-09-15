@@ -1,5 +1,5 @@
-const { login, logout, signup, updateId, all, getUserId, deleteUser } = require("../controllers/user.controller");
-
+const { login, logout, signup, updateId, all, getUserId, deleteUser, me } = require("../controllers/user.controller");
+const { validateUser } = require("../middlewares/auth");
 const express = require("express");
   const router = express.Router();
 
@@ -10,5 +10,5 @@ const express = require("express");
   router.delete('/delete/:id',deleteUser)
   router.get('/all',all)
   router.get('/:id',getUserId)
-
+  router.get("/me", validateUser, me );
   module.exports = router

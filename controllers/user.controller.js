@@ -115,8 +115,14 @@ const deleteUser = asyncHandler(async (req, res) => {
   } catch (error) {
     res.status(500).send("signup error: " + error);
   }
+
 });
 
+const me = asyncHandler(async (req, res) => {
+    res.send(req.user);
+  })
+
+  
 module.exports = {
   login,
   signup,
@@ -125,4 +131,5 @@ module.exports = {
   all,
   getUserId,
   deleteUser,
+  me
 };
