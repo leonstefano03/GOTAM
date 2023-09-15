@@ -11,19 +11,19 @@
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/userSchema"
+            $ref: "#/components/schemas/User"
           example:
             email: user@test.com
             password: 1234Test
             full_name: test testeando
     responses:
-      '201':
+      "201":
         description: User created successfully.
-      '400':
+      "400":
         description: Bad Request
-      '404':
+      "404":
         description: Not Found
-      '500':
+      "500":
         description: Internal Server Error.
 
 # LOGIN USER
@@ -31,7 +31,7 @@
   post:
     summary: User login
     description: Allows a user to log in through an email and password.
-    tags: 
+    tags:
       - User
     requestBody:
       description: Json object with user data
@@ -39,17 +39,17 @@
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/userSchema'
+            $ref: "#/components/schemas/User"
             example:
               full_name: test testeando
               email: user@test.com
               password: 1234Test
     responses:
-      '200':
+      "200":
         description: ok
-      '401':
+      "401":
         description: Unauthorized - Invalid username or password.
-      '500':
+      "500":
         description: Internal Server Error.
 
 # LOGOUT USER
@@ -57,12 +57,12 @@
   post:
     summary: User logout
     description: Allows a user to log out.
-    tags: 
+    tags:
       - User
     responses:
-      '200':
+      "200":
         description: Successful logout.
-      '401':
+      "401":
         description: Unauthorized - Invalid token.
-      '500':
+      "500":
         description: Internal Server Error.
