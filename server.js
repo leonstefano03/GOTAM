@@ -4,6 +4,9 @@ const db = require("./config/db");
 const routes = require("./routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const swaggerUi = require("swagger-ui-express");
+const swaggerConfig = require("./docs/swagger");
+const swaggerJSDoc = require("swagger-jsdoc");
 
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -16,6 +19,15 @@ server.use(cookieParser());
 server.use(cors(corsOptions));
 server.use(express.json());
 server.use("/api", routes);
+
+//Swagger config
+server.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerJSDoc(swaggerConfig))
+);
+
+
 
 db.sync({ force:false })
   .then(() => {
