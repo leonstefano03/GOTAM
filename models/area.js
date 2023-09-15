@@ -7,6 +7,7 @@ Area.init({
   name_of_area: {
     type: sequelize.STRING, 
     allowNull: false ,
+    unique: true
   },
 },{sequelize: db, modelName: 'Area'});
 
