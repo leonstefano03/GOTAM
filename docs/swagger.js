@@ -1,5 +1,6 @@
 const path = require("path");
-
+const dotenv = require('dotenv')
+dotenv.config()
 const options = {
   definition: {
     openapi: "3.1.0",
@@ -11,7 +12,7 @@ const options = {
   },
   servers: [
     {
-      url: "http://localhost:3001",
+      url: process.env.API_URL,
     },
   ],
   basePath: "/api",
