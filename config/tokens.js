@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
+const dotenv = require('dotenv')
+dotenv.config()
 
-const SECRET = 'inflacion'
+const SECRET = process.env.SECRET
 
 const generateToken = (payload) => {
 	const token = jwt.sign({ user: payload }, SECRET, {

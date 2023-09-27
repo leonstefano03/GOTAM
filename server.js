@@ -7,9 +7,11 @@ const cookieParser = require("cookie-parser");
 const swaggerUi = require("swagger-ui-express");
 const swaggerConfig = require("./docs/swagger");
 const swaggerJSDoc = require("swagger-jsdoc");
+const dotenv = require('dotenv')
+dotenv.config()
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: process.env.URL_FRONT,
   credentials: true,
 };
 
@@ -30,7 +32,7 @@ server.use(
 const connect = () => {
   db.sync({ force: false })
     .then(() => {
-      server.listen(3001, () => {
+      server.listen(process.env.PORT, () => {
         console.log("Server is running on port 3001");
       });
     })
