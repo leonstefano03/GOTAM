@@ -27,14 +27,18 @@ server.use(
   swaggerUi.setup(swaggerJSDoc(swaggerConfig))
 );
 
-
-
-db.sync({ force:false })
-  .then(() => {
-    server.listen(3001, () => {
-      console.log("Server is running on port 3001");
+const connect = () => {
+  db.sync({ force: false })
+    .then(() => {
+      server.listen(3001, () => {
+        console.log("Server is running on port 3001");
+      });
+    })
+    .catch((error) => {
+      console.error("Error connecting to dataBase: ", error);
     });
-  })
-  .catch((error) => {
-    console.error("Error connecting to dataBase: ", error);
-  });
+};
+
+connect()
+
+module.exports = connect;
