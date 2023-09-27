@@ -1,0 +1,26 @@
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        full_name:
+          type: string
+          description: name of the employee.
+        birthday:
+          type: date
+          format: date-time
+          description: birthday of the employee.
+        dni:
+          type: string
+          description: dni of the employee.
+        developer:
+          type: boolean
+          default: false
+          description: if the employee are developer, its true, if not, its false.
+        AreaId:
+          type: number
+          description: area id of the are who belongs.
+        additional_information:
+          type: string
+          nullable: true
+          description: any extra details, a contact phone number, or any relevant information.

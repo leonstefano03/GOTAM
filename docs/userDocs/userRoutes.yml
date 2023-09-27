@@ -1,0 +1,68 @@
+# CREATE USER
+/api/user/signup:
+  post:
+    summary: Create new user
+    description: Creates a new user in the database.
+    tags:
+      - User
+    requestBody:
+      description: Json object that contains user information
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/User"
+          example:
+            email: user@test.com
+            password: 1234Test
+            full_name: test testeando
+    responses:
+      "201":
+        description: User created successfully.
+      "400":
+        description: Bad Request
+      "404":
+        description: Not Found
+      "500":
+        description: Internal Server Error.
+
+# LOGIN USER
+/api/user/login:
+  post:
+    summary: User login
+    description: Allows a user to log in through an email and password.
+    tags:
+      - User
+    requestBody:
+      description: Json object with user data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/User"
+            example:
+              full_name: test testeando
+              email: user@test.com
+              password: 1234Test
+    responses:
+      "200":
+        description: ok
+      "401":
+        description: Unauthorized - Invalid username or password.
+      "500":
+        description: Internal Server Error.
+
+# LOGOUT USER
+/api/user/logout:
+  post:
+    summary: User logout
+    description: Allows a user to log out.
+    tags:
+      - User
+    responses:
+      "200":
+        description: Successful logout.
+      "401":
+        description: Unauthorized - Invalid token.
+      "500":
+        description: Internal Server Error.
